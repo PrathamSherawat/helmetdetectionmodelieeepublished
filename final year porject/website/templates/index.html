@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Helmet Verify - AI Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+        
+
+<style>
+    .slide {
+      display: none;
+      width: 100%;
+      height: 400px;
+      text-align: center;
+    }
+    .slide img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 2px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.6s ease;
+    }
+    .active, .dot:hover {
+      background-color: #717171;
+    }
+  </style>
+  </head>
+
+
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="#details">Details</a></li>
+            <li><a href="#service">Service</a></li>
+            <li><a href="#team">Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="geometric-pattern"></div>
+        <div class="container">
+            <h1>Helmet Verify : AI Detection System for Safety Check</h1>
+            <div class="hero-content">
+                <div class="hero-image">
+                    <img src="{{ url_for('static', filename='images/image.jpg') }}" alt="Helmet Detection" class="gradient-image">
+                </div>
+                <div class="hero-text">
+                    <p>Our project leverages cutting-edge YOLOv11 AI algorithms to revolutionize motorcycle safety. We've developed a highly accurate system that detects whether a driver is wearing a helmet in real-time. If a helmet is detected, the bike's motor will start. If a helmet is not detected during riding, an alarm will sound, and the bike's motor will eventually stop, ensuring rider safety at all times.</p>
+                    <div class="tech-tags">
+                        <span class="tag">YOLOv11</span>
+                        <span class="tag">Real-time Detection</span>
+                        <span class="tag">Motorcycle Safety</span>
+                        <span class="tag">Computer Vision</span>
+                    </div>
+                </div>
+            </div>
+            <div class="metrics-box">
+                <h3>Project Analysis</h3>
+                <div class="metrics-grid">
+                    <div class="metric">
+                        <span class="metric-value">98%</span>
+                        <span class="metric-label"><b>precision for helmet detection</b></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">90%</span>
+                        <span class="metric-label"><b>recall at maximum confidence</b></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">0.96</span>
+                        <span class="metric-label"><b>Overall F1-score across all classes</b></span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-value">0.978</span>
+                        <span class="metric-label"><b>Mean Average Precision (mAP@0.5)</b></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="details" class="details">
+        <div class="container">
+            <h2>Project Details</h2>
+            <div class="details-grid">
+                <div class="detail-card">
+                    <h3>Project Objective</h3>
+                    <hr>
+                    <p>To develop a system that detects whether a driver is wearing a helmet. If a helmet is detected, the bike's motor will start. If a helmet is not detected during riding, an alarm will sound, and the bike's motor will eventually stop.</p>
+                </div>
+                <div class="detail-card">
+                    <h3>Core Features</h3>
+                    <hr>
+                    <ul>
+                        <li><b>Helmet Detection:</b> The system uses computer vision techniques, including YOLOv11, to detect whether the rider is wearing a helmet.</li>
+                        <li><b>Real-Time Processing:</b> The system works with a live camera feed for real-time helmet detection, ensuring immediate response and control.</li>
+                    </ul>
+                </div>
+                <div class="detail-card">
+                    <h3>Model Configuration</h3>
+                    <hr>
+                    <ul>
+                        <li><b>Pre-trained Model:</b> YOLOv11 model trained with Ultralytics for helmet detection tasks</p>
+                        <li><b>Training Setup:</b><ul>
+                        <li>1,200 images with YOLOv11 formatted .txt annotation files</li>
+                        <li>Annotations created using Roboflow</li>
+                        <li>100 epochs of training</li>
+                    </ul>
+                </div>
+            </div>
+            
+        <div class="slide">
+        <img src="{{ url_for('static', filename='images/image1.png') }}" alt="Helmet Detection 1">
+        </div>
+
+        <div class="slide">
+        <img src="{{ url_for('static', filename='images/image2.png') }}" alt="Helmet Detection 2">
+        </div>
+
+        <div class="slide">
+        <img src="{{ url_for('static', filename='images/image3.png') }}" alt="Speedometer Simulator">
+        </div>
+
+        <div class="slide">
+        <img src="{{ url_for('static', filename='images/image4.png') }}" alt="Performance Metrics">
+        </div>
+
+        <div class="slide">
+        <img src="{{ url_for('static', filename='images/image5.png') }}" alt="Confusion Matrix">
+        </div>
+
+        <div style="text-align:center">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+        </div>
+
+        <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("slide");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) {slideIndex = 1}
+            if (n < 1) {slideIndex = slides.length}
+            for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex-1].style.display = "block";
+            dots[slideIndex-1].className += " active";
+        }
+        </script>
+        </div>
+    </section>
+
+    <section id="service" class="service">
+        <div class="container">
+            <h2>Our AI-Powered Helmet Detection Service</h2>
+            <p class="section-description">Access our state-of-the-art YOLOv11 model to detect helmets in real-time, ensuring motorcycle safety and compliance. Our advanced algorithms can process live camera feeds and provide immediate responses for helmet detection.</p>
+            <button class="cta-button">Access Helmet Detection Model</button>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">📹</div>
+                    <h3>Real-Time Processing</h3>
+                    <p>Process live camera feeds for immediate helmet detection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3>YOLOv11 Algorithm</h3>
+                    <p>Utilize the latest YOLO model for accurate object detection</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safety Integration</h3>
+                    <p>Seamlessly integrate with motorcycle systems for enhanced safety</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="team">
+        <div class="container">
+            <h2>Our Tech Team</h2>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="{{ url_for('static', filename='images/anamika mam.jpg') }}?height=200&width=200" alt="Dr. Mentor" class="team-image">
+                    <h3>Dr Anamika Singh</h3>
+                    <p class="role">Project Mentor</p>
+                    <div class="skill-tags">
+                        <span class="tag">AWS</span>
+                        <span class="tag">Azure</span>
+                        <span class="tag">Google Cloud</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="{{ url_for('static', filename='images/Passport_size Photo.jpg') }}?height=200&width=200" alt="Pratham Sherawat" class="team-image">
+                    <h3>Pratham Sherawat</h3>
+                    <p class="role">BTech Student</p>
+                    <div class="skill-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Neural Networks</span>
+                        <span class="tag">Python</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="{{ url_for('static', filename='images/aryan barar.jpg') }}?height=200&width=200" alt="Aryan Barar" class="team-image">
+                    <h3>Aryan Barar</h3>
+                    <p class="role">BTech Student</p>
+                    <div class="skill-tags">
+                        <span class="tag">Service Now</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Data Structures</span>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="{{ url_for('static', filename='images/vivek.jpg') }}?height=200&width=200" alt="Vivek Agarwal" class="team-image">
+                    <h3>Vivek Agarwal</h3>
+                    <p class="role">BTech Student</p>
+                    <div class="skill-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">CSS</span>
+                        <span class="tag">HTML</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="geometric-pattern"></div>
+        <div class="container">
+            <h2>Contact Team Members</h2>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <div class="contact-icon">👤</div>
+                    <h3>Pratham Sherawat</h3>
+                    <p><a href="mailto:prathamsherawat0@gmail.com">prathamsherawat0@gmail.com</a></p>
+                    <p><a href="tel:9045402251">9045402251</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">👤</div>
+                    <h3>Aryan Barar</h3>
+                    <p><a href="mailto:aryanbarar2609@gmail.com">aryanbarar2609@gmail.com</a></p>
+                    <p><a href="tel:9627192609">9627192609</a></p>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-icon">👤</div>
+                    <h3>Vivek Agarwal</h3>
+                    <p><a href="mailto:vkwal98@gmail.com">vkwal98@gmail.com</a></p>
+                    <p><a href="tel:6397345614">6397345614</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
